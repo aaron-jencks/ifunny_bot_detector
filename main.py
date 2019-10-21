@@ -1,6 +1,5 @@
 from ifunny_server import IFunnyServer
 from reporter import Reporter
-from tqdm import tqdm
 
 
 def print_list(l: list):
@@ -31,7 +30,4 @@ if __name__ == "__main__":
             print('Found {} bots!'.format(len(bots)))
             print('Reporting...')
 
-            for b in tqdm(bots):
-                rep.report(b)
-
-
+            rep.report_multiple(bots)

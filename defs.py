@@ -10,6 +10,10 @@ class Bot:
         self.url = url
         self.post = post
 
+    def __eq__(self, other):
+        if isinstance(other, Bot):
+            return other.user == self.user
+
     @property
     def user_homepage(self) -> str:
         return homepage + self.url
