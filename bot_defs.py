@@ -16,17 +16,27 @@ class SupportBot(Bot):
                'for an offensive and fake website by impersonating ifunny personnel.'.format(self.user)
 
 
-class TityKissBot(Bot):
-    regex = re.compile(r'titykiss')
-
-    @staticmethod
-    def qualifies(user: dict) -> bool:
-        return 'titykiss' in str(user['text']) is not None and Bot.qualifies(user)
-
+class PornBot(Bot):
     @property
     def reasoning_str(self) -> str:
         return 'The user {} is baiting comment sections for a fake snapchat account used for scamming ' \
                '(it\'s a porn bot)'.format(self.user)
 
 
-bot_list = [SupportBot, TityKissBot]
+class TityKissBot(PornBot):
+    regex = re.compile(r'titykiss')
+
+    @staticmethod
+    def qualifies(user: dict) -> bool:
+        return 'titykiss' in str(user['text']) is not None and Bot.qualifies(user)
+
+
+class DirtAnnBot(PornBot):
+    regex = re.compile(r'dirtann')
+
+    @staticmethod
+    def qualifies(user: dict) -> bool:
+        return 'dirtann' in str(user['text']) is not None and Bot.qualifies(user)
+
+
+bot_list = [SupportBot, TityKissBot, DirtAnnBot]

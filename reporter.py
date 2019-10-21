@@ -55,7 +55,9 @@ class Reporter:
                         form = self.browser.find_element_by_css_selector('textarea[name="details"]')
 
                         form.send_keys('This is a bot created by Aaron, '
-                                       'it\'s sole purpose is to hunt down and report other bots on ifunny')
+                                       'it\'s sole purpose is to hunt down and report other bots on ifunny, '
+                                       'you can find the source code at: '
+                                       'https://github.com/iggy12345/ifunny_bot_detector')
 
                         form = self.browser.find_element_by_css_selector('input[name="relationships"]')
                         form.send_keys('Bot Prosecutor')
